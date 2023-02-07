@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<h2>Geolocation web APIs</h2>
+	<p>Click the button to get the coordinates</p>
+	<button onclick="getLocation()">Try it</button>
+	<p id="demo"></p>
+	<script>
+		const x=document.getElementById("demo");
+		function getLocation(){
+			if(navigator.geolocation){
+				navigator.geolocation.watchPosition(showPosition);
+			}
+			else{
+			x.innerHTML="Geolocation is not supported by this browser!";
+			}
+		}
+		function showPosition(position){
+			x.innerHTML="Latitude: " + position.coords.latitude +"<br>Longitude: " + position.coords.longitude + "<br>Accuracy: " + position.coords.accuracy + "<br>Altitude: " + position.coords.altitude + "<br>Speed: " + position.coords.speed + "<br>Heading: " + position.coords.heading + "<br>Altitude accuracy: " + position.coords.altitudeAccuracy + "<br>Time stamp: " + position.timestamp;
+		}
+	</script>
+</body>
+</html>
